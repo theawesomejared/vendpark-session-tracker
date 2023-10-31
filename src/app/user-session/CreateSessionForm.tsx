@@ -34,6 +34,7 @@ export default function CreateSessionForm({
 
       const responseData = await res.json();
 
+      // Handle validation errors
       if (res.ok) {
         onSession(responseData);
       } else {

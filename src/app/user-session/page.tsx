@@ -5,6 +5,7 @@ import { useState } from "react";
 import CreateSessionForm from "./CreateSessionForm";
 import { ActiveSession } from "./ActiveSession";
 
+// Displays a session lookup/create form, or displays a session once retrieved
 export default function SessionPage() {
   const [sessionData, setSessionData] = useState<ParkingSessionData | null>(
     null

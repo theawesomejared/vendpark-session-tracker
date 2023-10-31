@@ -49,7 +49,8 @@ const columns: GridColDef[] = [
   },
 ];
 
-export default function SessionPage() {
+// This page is an Admin view with a real-time parking session DataGrid
+export default function AdminPage() {
   const [sessions, setSessions] = useState<ParkingSessionData[]>([]);
   const [loading, setLoading] = useState(true);
 

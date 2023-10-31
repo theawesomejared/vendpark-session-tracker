@@ -11,6 +11,7 @@ export class SessionDataValidationError extends Error {
   }
 }
 
+// I'm not sure if these rules make sense for ALL license plates, but it's a start
 function validateLicensePlate(licensePlate: string): SessionPropValidation {
   const result = { valid: true, message: "" };
 
@@ -25,6 +26,7 @@ function validateLicensePlate(licensePlate: string): SessionPropValidation {
   return result;
 }
 
+// Very basic phone number validation--look into a proper validation library
 function validatePhoneNumber(phoneNumber: string): SessionPropValidation {
   const result = { valid: true, message: "" };
 
@@ -43,6 +45,7 @@ export function validateSessionData(licensePlate: string, phoneNumber: string) {
   const licensePlateValidation = validateLicensePlate(licensePlate);
   const phoneNumberValidation = validatePhoneNumber(phoneNumber);
 
+  // If invalid, throw an error to be caught by the API
   if (!licensePlateValidation.valid || !phoneNumberValidation.valid) {
     throw new SessionDataValidationError({
       licensePlate: licensePlateValidation,

@@ -80,6 +80,7 @@ export async function endSession(licensePlate: string) {
 export function subscribeToSessions(
   callback: (sessions: ParkingSessionData[]) => void
 ) {
+  // Subscribe to parking session collection changes
   return onSnapshot(collection(db, COLLECTION_NAME), (snapshot) => {
     const data = snapshot.docs.map(
       (doc) => ({ id: doc.id, ...doc.data() } as ParkingSessionData)
